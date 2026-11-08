@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Genérico — Tienda</title>
+  <meta name="description" content="Catálogos de la tienda.">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/inicio.css">
+  <script type="module" src="src/inicio.js"></script>
+</head>
+<body>
+  <header class="menu">
+    <nav class="contenedor menu__interior" aria-label="Principal">
+      <a class="marca" href="index.html" data-nombre-tienda>Genérico</a>
+      <ul class="menu__enlaces" id="enlaces-categorias"></ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero" aria-labelledby="hero-titulo">
+      <div class="hero__escena">
+        <div class="hero__fondo"></div>
+        <img class="hero__imagen" id="hero-imagen" alt="" hidden>
+        <div class="contenedor hero__contenido">
+          <h1 class="hero__titulo" id="hero-titulo">
+            <span data-nombre-tienda>Genérico</span>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="contenedor navegacion" id="catalogos" aria-labelledby="titulo-catalogos">
+      <h2 class="etiqueta navegacion__titulo" id="titulo-catalogos">Catálogos</h2>
+      <div id="catalogos-contenido"></div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__interior" id="pie-datos"></div>
+  </footer>
+</body>
+</html>

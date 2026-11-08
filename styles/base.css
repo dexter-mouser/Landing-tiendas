@@ -1,0 +1,246 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-casi-negro);
+  color: var(--color-casi-blanco);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-base);
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-violeta);
+  outline-offset: 3px;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin-inline: auto;
+  padding-inline: var(--margen-lateral);
+}
+
+/* ---------- Tipografía de sistema ---------- */
+.etiqueta {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-etiqueta);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-acero);
+}
+
+/* Encabezado "sello": el espaciado entre letras es el diseño. */
+.sello {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-sello);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-blanco-suave);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Botones ---------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-8);
+  padding: 12px 18px;
+  border: 1px solid var(--color-casi-blanco);
+  border-radius: var(--radio-boton);
+  background: var(--color-casi-negro);
+  color: var(--color-casi-blanco);
+  font-size: var(--texto-pequeno);
+  font-weight: 400;
+  text-decoration: none;
+  transition: background var(--transicion-rapida), color var(--transicion-rapida);
+}
+
+.boton:hover {
+  background: var(--color-casi-blanco);
+  color: var(--color-casi-negro);
+}
+
+/* ---------- Menú superior ---------- */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--alto-menu);
+  border-bottom: 1px solid var(--color-borde);
+  background: rgba(9, 9, 9, 0.55);
+  backdrop-filter: blur(14px);
+}
+
+.menu__interior {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-24);
+  height: 100%;
+}
+
+.marca {
+  font-size: var(--texto-pequeno);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.menu__enlaces {
+  display: flex;
+  gap: var(--espacio-24);
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.menu__enlaces a {
+  font-size: var(--texto-etiqueta);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-acero);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.menu__enlaces a:hover,
+.menu__enlaces a[aria-current='page'] {
+  color: var(--color-casi-blanco);
+}
+
+@media (max-width: 640px) {
+  .menu__enlaces {
+    gap: var(--espacio-16);
+  }
+}
+
+/* ---------- Filas de navegación con flecha (estilo dope.security) ---------- */
+.filas {
+  display: grid;
+  gap: var(--espacio-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-24);
+  padding: var(--espacio-8) var(--espacio-24);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-boton);
+  text-decoration: none;
+  transition: border-color var(--transicion-rapida), background var(--transicion-rapida);
+}
+
+.fila:hover,
+.fila:focus-visible {
+  border-color: var(--color-borde-fuerte);
+  background: rgba(247, 249, 250, 0.04);
+}
+
+.fila__texto {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-fila);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+/* Letras aún no reveladas: solo contorno. JS les quita la clase al hacer scroll. */
+.letra--contorno {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-casi-blanco);
+}
+
+.fila__flecha {
+  flex-shrink: 0;
+  width: clamp(20px, 2.4vw, 30px);
+  height: clamp(20px, 2.4vw, 30px);
+  transition: transform var(--transicion-rapida);
+}
+
+.fila:hover .fila__flecha,
+.fila:focus-visible .fila__flecha {
+  transform: translateX(6px);
+}
+
+/* ---------- Pie ---------- */
+.pie {
+  margin-top: var(--espacio-seccion);
+  padding-block: var(--espacio-24);
+  border-top: 1px solid var(--color-borde);
+  color: var(--color-ceniza);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-etiqueta);
+}
+
+.pie__interior {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--espacio-16);
+}
+
+.pie p {
+  margin: 0;
+}
+
+.aviso {
+  margin: var(--espacio-40) 0;
+  padding: var(--espacio-24);
+  border: 1px dashed var(--color-borde-fuerte);
+  border-radius: var(--radio-tarjeta);
+  color: var(--color-acero);
+  text-align: center;
+}
+
+.aviso a {
+  color: var(--color-lavanda);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+  }
+}

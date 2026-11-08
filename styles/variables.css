@@ -1,0 +1,55 @@
+/* Colores y medidas del sistema DOPE (../DOPE Desing). Tipografía: la del sistema
+   operativo, genérica y sin descargas. */
+:root {
+  /* Colores */
+  --color-casi-negro: #090909;
+  --color-superficie: #111112;
+  --color-casi-blanco: #f7f9fa;
+  --color-blanco-suave: #f0f0f0;
+  --color-acero: #828384;
+  --color-grafito: #474747;
+  --color-ceniza: #6b6b6b;
+  --color-violeta: #af50ff;
+  --color-lavanda: #e1bdff;
+  --color-borde: rgba(247, 249, 250, 0.14);
+  --color-borde-fuerte: rgba(247, 249, 250, 0.4);
+  --color-lavado: rgba(237, 195, 196, 0.05);
+  --color-brillo-violeta: rgba(175, 80, 255, 0.35);
+
+  /* Tipografía */
+  --fuente-texto: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --texto-etiqueta: 0.75rem;
+  --texto-pequeno: 0.875rem;
+  --texto-base: 1rem;
+  --texto-subtitulo: 1.25rem;
+  --texto-titulo-sm: 2rem;
+  --texto-titulo: clamp(2rem, 5vw, 3rem);
+  --texto-sello: clamp(1.5rem, 6vw, 4.625rem);
+  --texto-fila: clamp(1.5rem, 5.6vw, 4.625rem);
+
+  /* Espacios (base 4px) */
+  --espacio-4: 4px;
+  --espacio-8: 8px;
+  --espacio-12: 12px;
+  --espacio-16: 16px;
+  --espacio-24: 24px;
+  --espacio-32: 32px;
+  --espacio-40: 40px;
+  --espacio-64: 64px;
+  --espacio-96: 96px;
+  --espacio-seccion: clamp(72px, 10vw, 120px);
+
+  /* Formas */
+  --radio-tarjeta: 19.2px;
+  --radio-boton: 8px;
+  --radio-control: 6px;
+  --radio-pildora: 1584px;
+
+  /* Layout */
+  --ancho-maximo: 1200px;
+  --margen-lateral: clamp(16px, 4vw, 40px);
+  --alto-menu: 68px;
+
+  --transicion-rapida: 160ms ease;
+}

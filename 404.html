@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página no encontrada</title>
+  <!-- Rutas absolutas: esta página se sirve desde cualquier URL inexistente. -->
+  <link rel="stylesheet" href="/styles/variables.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <style>
+    .no-encontrada {
+      display: grid;
+      place-content: center;
+      justify-items: start;
+      gap: var(--espacio-24);
+      min-height: 100vh;
+    }
+
+    .no-encontrada h1 {
+      margin: 0;
+      font-size: var(--texto-titulo);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .no-encontrada p {
+      margin: 0;
+      color: var(--color-acero);
+      font-size: var(--texto-subtitulo);
+    }
+  </style>
+</head>
+<body>
+  <main class="contenedor no-encontrada">
+    <p class="sello">404</p>
+    <h1>Esta página no está en la repisa.</h1>
+    <p>Puede que el enlace esté mal escrito o que la página ya no exista.</p>
+    <a class="boton" href="/index.html">Volver al inicio</a>
+  </main>
+</body>
+</html>

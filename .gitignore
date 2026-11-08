@@ -1,0 +1,24 @@
+# Dependencias y configuración local
+node_modules/
+.claude/
+
+# Archivos del sistema y del editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Archivos de la versión anterior que la página ya no usa
+assets/logo.svg
+assets/img/hero.svg
+assets/img/despensa.svg
+assets/img/bebidas.svg
+assets/img/aseo.svg
+datos/productos.json
+src/carrito.js
+src/almacen-carrito.js
+src/pedido.js
+src/formato.js
+src/vista-carrito.js
+src/vista-productos.js
+pruebas/carrito.test.js
+pruebas/pedido.test.js

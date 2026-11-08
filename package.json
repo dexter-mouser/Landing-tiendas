@@ -1,0 +1,9 @@
+{
+  "name": "landing-tiendas",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test pruebas/",
+    "start": "npx --yes serve@14.2.4 ."
+  }
+}

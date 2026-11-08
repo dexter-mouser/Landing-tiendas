@@ -1,0 +1,6 @@
+[
+  { "id": "fila-1", "nombre": "Fila 1", "descripcion": "Descripción del catálogo." },
+  { "id": "fila-2", "nombre": "Fila 2", "descripcion": "Descripción del catálogo." },
+  { "id": "fila-3", "nombre": "Fila 3", "descripcion": "Descripción del catálogo." },
+  { "id": "fila-4", "nombre": "Fila 4", "descripcion": "Descripción del catálogo." }
+]

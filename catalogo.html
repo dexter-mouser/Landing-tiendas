@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo — Genérico</title>
+  <meta name="description" content="Catálogo de la tienda.">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/catalogo.css">
+  <script type="module" src="src/catalogo.js"></script>
+</head>
+<body>
+  <header class="menu">
+    <nav class="contenedor menu__interior" aria-label="Principal">
+      <a class="marca" href="index.html" data-nombre-tienda>Genérico</a>
+      <ul class="menu__enlaces" id="enlaces-categorias"></ul>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <header class="catalogo__cabecera">
+      <a class="etiqueta catalogo__volver" href="index.html#catalogos">← Catálogos</a>
+      <h1 class="sello" id="catalogo-titulo">Catálogo</h1>
+      <p class="catalogo__descripcion" id="catalogo-descripcion"></p>
+    </header>
+
+    <div class="rejilla" id="catalogo-lista"></div>
+
+    <section class="otros" id="otros" aria-labelledby="titulo-otros">
+      <h2 class="etiqueta" id="titulo-otros">Otros catálogos</h2>
+      <ul class="filas" id="otros-catalogos"></ul>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__interior" id="pie-datos"></div>
+  </footer>
+</body>
+</html>
