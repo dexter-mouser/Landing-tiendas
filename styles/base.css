@@ -32,6 +32,23 @@ a {
   color: inherit;
 }
 
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+.oculto-visual {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-violeta);
   outline-offset: 3px;
@@ -82,10 +99,12 @@ a {
   font-size: var(--texto-pequeno);
   font-weight: 400;
   text-decoration: none;
+  cursor: pointer;
   transition: background var(--transicion-rapida), color var(--transicion-rapida);
 }
 
-.boton:hover {
+.boton:hover,
+.boton--claro {
   background: var(--color-casi-blanco);
   color: var(--color-casi-negro);
 }
@@ -148,6 +167,23 @@ a {
   }
 }
 
+.boton-icono {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-pildora);
+  color: var(--color-acero);
+  transition: color var(--transicion-rapida), border-color var(--transicion-rapida);
+}
+
+.boton-icono:hover {
+  border-color: var(--color-casi-blanco);
+  color: var(--color-casi-blanco);
+}
+
 /* ---------- Filas de navegación con flecha (estilo dope.security) ---------- */
 .filas {
   display: grid;
@@ -201,6 +237,85 @@ a {
 .fila:hover .fila__flecha,
 .fila:focus-visible .fila__flecha {
   transform: translateX(6px);
+}
+
+/* ---------- Productos ---------- */
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: var(--espacio-16);
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--color-superficie);
+  overflow: hidden;
+}
+
+/* Recuadro blanco en lugar de foto mientras no haya imágenes. */
+.producto__imagen {
+  aspect-ratio: 4 / 3;
+  background: var(--color-casi-blanco);
+}
+
+.producto__cuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--espacio-8);
+  padding: var(--espacio-24);
+}
+
+.producto__nombre {
+  margin: 0;
+  font-size: var(--texto-subtitulo);
+  font-weight: 600;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.producto__descripcion {
+  margin: 0;
+  color: var(--color-acero);
+  font-size: var(--texto-pequeno);
+  overflow-wrap: anywhere;
+}
+
+.producto__precio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-8);
+  margin: auto 0 0;
+  padding-top: var(--espacio-8);
+  font-weight: 600;
+}
+
+/* Agotado: se sigue viendo, atenuado y con etiqueta. */
+.producto--agotado .producto__imagen,
+.producto--agotado .producto__nombre,
+.producto--agotado .producto__descripcion {
+  opacity: 0.45;
+}
+
+.producto--agotado .producto__precio {
+  color: var(--color-ceniza);
+  text-decoration: line-through;
+}
+
+.distintivo-agotado {
+  padding: 3px 10px;
+  border: 1px solid currentColor;
+  border-radius: var(--radio-pildora);
+  color: #ffb36b;
+  font-size: var(--texto-etiqueta);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 /* ---------- Pie ---------- */

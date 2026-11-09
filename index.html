@@ -15,6 +15,9 @@
     <nav class="contenedor menu__interior" aria-label="Principal">
       <a class="marca" href="index.html" data-nombre-tienda>Genérico</a>
       <ul class="menu__enlaces" id="enlaces-categorias"></ul>
+      <a class="boton-icono" href="admin.html" aria-label="Iniciar sesión en el panel de admin" title="Iniciar sesión">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      </a>
     </nav>
   </header>
 
@@ -22,7 +25,8 @@
     <section class="hero" id="hero" aria-labelledby="hero-titulo">
       <div class="hero__escena">
         <div class="hero__fondo"></div>
-        <img class="hero__imagen" id="hero-imagen" alt="" hidden>
+        <img class="hero__imagen" id="hero-imagen" alt="" fetchpriority="high" hidden>
+        <div class="hero__velo"></div>
         <div class="contenedor hero__contenido">
           <h1 class="hero__titulo" id="hero-titulo">
             <span data-nombre-tienda>Genérico</span>
@@ -34,6 +38,11 @@
     <section class="contenedor navegacion" id="catalogos" aria-labelledby="titulo-catalogos">
       <h2 class="etiqueta navegacion__titulo" id="titulo-catalogos">Catálogos</h2>
       <div id="catalogos-contenido"></div>
+    </section>
+
+    <section class="contenedor destacados" id="destacados" aria-labelledby="titulo-destacados" hidden>
+      <h2 class="etiqueta destacados__titulo" id="titulo-destacados">Destacados</h2>
+      <div class="rejilla" id="destacados-lista"></div>
     </section>
   </main>
 

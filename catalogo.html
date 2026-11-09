@@ -15,6 +15,9 @@
     <nav class="contenedor menu__interior" aria-label="Principal">
       <a class="marca" href="index.html" data-nombre-tienda>Genérico</a>
       <ul class="menu__enlaces" id="enlaces-categorias"></ul>
+      <a class="boton-icono" href="admin.html" aria-label="Iniciar sesión en el panel de admin" title="Iniciar sesión">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      </a>
     </nav>
   </header>
 
@@ -24,6 +27,13 @@
       <h1 class="sello" id="catalogo-titulo">Catálogo</h1>
       <p class="catalogo__descripcion" id="catalogo-descripcion"></p>
     </header>
+
+    <div class="buscador" id="buscador" hidden>
+      <label class="oculto-visual" for="campo-busqueda">Buscar en este catálogo</label>
+      <input class="buscador__campo" id="campo-busqueda" type="search" placeholder="Buscar en este catálogo…" maxlength="60" autocomplete="off">
+      <p class="etiqueta" id="buscador-resultado" aria-live="polite"></p>
+    </div>
+    <p class="aviso" id="sin-resultados" hidden>Ningún producto coincide con tu búsqueda.</p>
 
     <div class="rejilla" id="catalogo-lista"></div>
 

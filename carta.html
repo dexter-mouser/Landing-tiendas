@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta — Genérico</title>
+  <meta name="description" content="Carta digital con todos los productos y precios.">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/carta.css">
+  <script type="module" src="src/carta.js"></script>
+</head>
+<body>
+  <header class="menu no-imprimir">
+    <nav class="contenedor menu__interior" aria-label="Principal">
+      <a class="marca" href="index.html" data-nombre-tienda>Genérico</a>
+      <button class="boton menu__accion" id="boton-imprimir" type="button">Imprimir / PDF</button>
+    </nav>
+  </header>
+
+  <main class="contenedor carta">
+    <header class="carta__cabecera">
+      <p class="etiqueta">Carta</p>
+      <h1 class="sello" data-nombre-tienda>Genérico</h1>
+    </header>
+    <div id="carta-contenido"></div>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__interior" id="pie-datos"></div>
+  </footer>
+</body>
+</html>

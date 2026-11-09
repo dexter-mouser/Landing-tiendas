@@ -1,6 +1,6 @@
 [
-  { "id": "fila-1", "nombre": "Fila 1", "descripcion": "Descripción del catálogo." },
-  { "id": "fila-2", "nombre": "Fila 2", "descripcion": "Descripción del catálogo." },
-  { "id": "fila-3", "nombre": "Fila 3", "descripcion": "Descripción del catálogo." },
-  { "id": "fila-4", "nombre": "Fila 4", "descripcion": "Descripción del catálogo." }
+  { "id": "cervezas", "nombre": "Cervezas", "descripcion": "Nacionales, artesanales y micheladas bien frías." },
+  { "id": "licores", "nombre": "Licores", "descripcion": "Aguardiente, ron, whisky y tequila, en trago o por botella." },
+  { "id": "cocteles", "nombre": "Cócteles", "descripcion": "Clásicos preparados en la barra." },
+  { "id": "pasabocas", "nombre": "Pasabocas", "descripcion": "Para picar y compartir en la mesa." }
 ]

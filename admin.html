@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin de productos</title>
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/admin.css">
+  <script type="module" src="src/admin.js"></script>
+</head>
+<body>
+  <header class="menu">
+    <nav class="contenedor menu__interior" aria-label="Principal">
+      <a class="marca" href="index.html" data-nombre-tienda>Genérico</a>
+      <span class="etiqueta">Admin</span>
+      <a class="boton menu__accion" href="index.html">Ver tienda →</a>
+    </nav>
+  </header>
+
+  <main class="contenedor admin">
+    <header class="admin__cabecera">
+      <h1 class="sello">Productos</h1>
+      <p class="admin__ayuda">Los cambios se guardan en este navegador. Para publicarlos, descarga el CSV y reemplaza <code>datos/productos.csv</code>.</p>
+      <div class="admin__acciones">
+        <button class="boton" id="boton-descargar" type="button">Descargar CSV</button>
+        <label class="boton" for="archivo-csv">Cargar CSV</label>
+        <input class="oculto-visual" id="archivo-csv" type="file" accept=".csv,text/csv">
+        <a class="boton" href="carta.html" target="_blank" rel="noopener">Ver carta</a>
+        <a class="boton" href="carta.html?imprimir=1" target="_blank" rel="noopener">Imprimir / PDF</a>
+      </div>
+      <p class="admin__estado" id="admin-estado" role="status"></p>
+    </header>
+
+    <div class="admin__columnas">
+      <form class="panel" id="formulario-producto" novalidate>
+        <h2 class="panel__titulo" id="titulo-formulario">Nuevo producto</h2>
+
+        <label class="campo">
+          <span class="campo__etiqueta">Nombre</span>
+          <input name="nombre" type="text" maxlength="60" required autocomplete="off">
+        </label>
+
+        <label class="campo">
+          <span class="campo__etiqueta">Precio (pesos, sin decimales)</span>
+          <input name="precio" type="text" inputmode="numeric" maxlength="12" required autocomplete="off">
+        </label>
+
+        <label class="campo">
+          <span class="campo__etiqueta">Catálogo</span>
+          <select name="catalogo" id="campo-catalogo" required></select>
+        </label>
+
+        <label class="campo">
+          <span class="campo__etiqueta">Estado</span>
+          <select name="estado">
+            <option value="disponible">Disponible</option>
+            <option value="agotado">Agotado (se ve con etiqueta)</option>
+            <option value="oculto">Oculto (no se muestra al público)</option>
+          </select>
+        </label>
+
+        <label class="campo">
+          <span class="campo__etiqueta">Descripción corta (opcional)</span>
+          <textarea name="descripcion" rows="3" maxlength="140"></textarea>
+        </label>
+
+        <label class="campo campo--casilla">
+          <input name="destacado" type="checkbox">
+          <span>Destacado en la página de inicio</span>
+        </label>
+
+        <p class="campo__error" id="error-formulario" role="alert"></p>
+
+        <div class="panel__botones">
+          <button class="boton boton--claro" type="submit" id="boton-guardar">Agregar producto</button>
+          <button class="boton" type="button" id="boton-cancelar" hidden>Cancelar edición</button>
+        </div>
+      </form>
+
+      <section class="panel" aria-labelledby="titulo-lista">
+        <h2 class="panel__titulo" id="titulo-lista">Lista</h2>
+        <div class="tabla-contenedor">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Catálogo</th>
+                <th scope="col" class="tabla__numero">Precio</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Destacado</th>
+                <th scope="col"><span class="oculto-visual">Acciones</span></th>
+              </tr>
+            </thead>
+            <tbody id="tabla-productos"></tbody>
+          </table>
+        </div>
+        <p class="admin__vacio" id="lista-vacia" hidden>Todavía no hay productos. Agrega el primero con el formulario.</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
