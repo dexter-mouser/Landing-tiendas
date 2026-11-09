@@ -39,6 +39,21 @@
   object-fit: cover;
 }
 
+/* Oscurece un poco el lado del titular para que se lea sobre la foto. */
+.hero__velo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(9, 9, 9, 0.6) 0%, rgba(9, 9, 9, 0.2) 55%, rgba(9, 9, 9, 0) 100%),
+    linear-gradient(0deg, rgba(9, 9, 9, 0.45) 0%, rgba(9, 9, 9, 0) 35%);
+}
+
+@media (max-width: 820px) {
+  .hero__velo {
+    background: linear-gradient(0deg, rgba(9, 9, 9, 0.55) 0%, rgba(9, 9, 9, 0.25) 100%);
+  }
+}
+
 /* Capa negra que cubre la portada al bajar: así se pasa del color al fondo de la página. */
 .hero__escena::after {
   content: '';
@@ -91,6 +106,15 @@
 }
 
 .navegacion__titulo {
+  margin-bottom: var(--espacio-24);
+}
+
+/* ---------- Destacados ---------- */
+.destacados {
+  padding-top: var(--espacio-seccion);
+}
+
+.destacados__titulo {
   margin-bottom: var(--espacio-24);
 }
 

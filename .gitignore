@@ -17,7 +17,6 @@ datos/productos.json
 src/carrito.js
 src/almacen-carrito.js
 src/pedido.js
-src/formato.js
 src/vista-carrito.js
 src/vista-productos.js
 pruebas/carrito.test.js
