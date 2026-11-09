@@ -1,17 +1,17 @@
-id;nombre;precio;catalogo;descripcion;destacado
-cerveza-rubia;Cerveza rubia nacional 330 ml;6000;cervezas;Lager suave, servida bien fría.;no
-cerveza-ipa;Cerveza artesanal IPA 330 ml;14000;cervezas;Amarga y aromática, de cervecería local.;si
-cerveza-negra;Cerveza negra 330 ml;9000;cervezas;Tostada, con notas de café y chocolate.;no
-michelada;Michelada;12000;cervezas;Cerveza con limón, sal y salsas en vaso escarchado.;si
-aguardiente-media;Aguardiente, media botella;45000;licores;375 ml, con limón y sal.;no
-ron-anejo;Ron añejo 8 años, trago;15000;licores;Servido solo o en las rocas.;no
-whisky-12;Whisky escocés 12 años, trago;25000;licores;Servido solo, en las rocas o con agua.;si
-tequila-reposado;Tequila reposado, trago;18000;licores;Con limón y sal.;no
-mojito;Mojito;22000;cocteles;Ron blanco, hierbabuena, limón y soda.;si
-margarita;Margarita;24000;cocteles;Tequila, triple sec y limón en copa escarchada.;no
-pina-colada;Piña colada;23000;cocteles;Ron, crema de coco y piña.;no
-gin-tonic;Gin tonic;26000;cocteles;Ginebra, tónica, pepino y enebro.;si
-papas-francesa;Papas a la francesa;12000;pasabocas;Porción para compartir con salsas.;no
-alitas-bbq;Alitas BBQ x8;28000;pasabocas;Con salsa barbecue y papas.;si
-picada;Picada para compartir;45000;pasabocas;Chorizo, chicharrón, papa criolla y arepitas.;si
-nachos;Nachos con queso;20000;pasabocas;Con guacamole, pico de gallo y jalapeños.;no
+id;nombre;precio;catalogo;descripcion;destacado;estado
+cerveza-rubia;Cerveza rubia nacional 330 ml;6000;cervezas;Lager suave, servida bien fría.;no;disponible
+cerveza-ipa;Cerveza artesanal IPA 330 ml;14000;cervezas;Amarga y aromática, de cervecería local.;si;disponible
+cerveza-negra;Cerveza negra 330 ml;9000;cervezas;Tostada, con notas de café y chocolate.;no;disponible
+michelada;Michelada;12000;cervezas;Cerveza con limón, sal y salsas en vaso escarchado.;si;disponible
+aguardiente-media;Aguardiente, media botella;45000;licores;375 ml, con limón y sal.;no;disponible
+ron-anejo;Ron añejo 8 años, trago;15000;licores;Servido solo o en las rocas.;no;disponible
+whisky-12;Whisky escocés 12 años, trago;25000;licores;Servido solo, en las rocas o con agua.;si;disponible
+tequila-reposado;Tequila reposado, trago;18000;licores;Con limón y sal.;no;disponible
+mojito;Mojito;22000;cocteles;Ron blanco, hierbabuena, limón y soda.;si;disponible
+margarita;Margarita;24000;cocteles;Tequila, triple sec y limón en copa escarchada.;no;disponible
+pina-colada;Piña colada;23000;cocteles;Ron, crema de coco y piña.;no;agotado
+gin-tonic;Gin tonic;26000;cocteles;Ginebra, tónica, pepino y enebro.;si;disponible
+papas-francesa;Papas a la francesa;12000;pasabocas;Porción para compartir con salsas.;no;disponible
+alitas-bbq;Alitas BBQ x8;28000;pasabocas;Con salsa barbecue y papas.;si;disponible
+picada;Picada para compartir;45000;pasabocas;Chorizo, chicharrón, papa criolla y arepitas.;si;disponible
+nachos;Nachos con queso;20000;pasabocas;Con guacamole, pico de gallo y jalapeños.;no;disponible

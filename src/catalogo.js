@@ -1,7 +1,7 @@
 import { cargarProductos } from './almacen-productos.js';
 import { iniciarPagina } from './comun.js';
 import { mostrarAviso } from './dom.js';
-import { productosDelCatalogo } from './productos.js';
+import { filtrarPorTexto, productosDelCatalogo, productosPublicos } from './productos.js';
 import { crearTarjetaProducto } from './tarjeta-producto.js';
 import { crearFila, iniciarRevelado } from './vista-filas.js';
 
@@ -18,7 +18,7 @@ function mostrarCatalogo(tienda, catalogos, productos) {
     document.title = `${catalogo.nombre} — ${tienda.nombre}`;
     document.getElementById('catalogo-titulo').textContent = catalogo.nombre;
     document.getElementById('catalogo-descripcion').textContent = catalogo.descripcion;
-    dibujarProductos(productosDelCatalogo(productos, catalogo.id));
+    dibujarProductos(productosPublicos(productosDelCatalogo(productos, catalogo.id)));
   }
   dibujarOtrosCatalogos(catalogos.filter((otro) => otro.id !== catalogo?.id));
 }
@@ -28,7 +28,29 @@ function dibujarProductos(productos) {
     mostrarAviso(contenido, 'Este catálogo todavía no tiene productos.');
     return;
   }
-  contenido.replaceChildren(...productos.map((producto) => crearTarjetaProducto(producto)));
+  // Las tarjetas se crean una vez; buscar solo las muestra u oculta.
+  const tarjetaPorId = new Map(productos.map((producto) => [producto.id, crearTarjetaProducto(producto)]));
+  contenido.replaceChildren(...tarjetaPorId.values());
+  conectarBuscador(productos, tarjetaPorId);
+}
+
+function conectarBuscador(productos, tarjetaPorId) {
+  const campo = document.getElementById('campo-busqueda');
+  const resultado = document.getElementById('buscador-resultado');
+  const sinResultados = document.getElementById('sin-resultados');
+
+  const filtrar = () => {
+    const idsVisibles = new Set(filtrarPorTexto(productos, campo.value).map((producto) => producto.id));
+    tarjetaPorId.forEach((tarjeta, id) => {
+      tarjeta.hidden = !idsVisibles.has(id);
+    });
+    resultado.textContent = idsVisibles.size === 1 ? '1 producto' : `${idsVisibles.size} productos`;
+    sinResultados.hidden = idsVisibles.size > 0;
+  };
+
+  campo.addEventListener('input', filtrar);
+  document.getElementById('buscador').hidden = false;
+  filtrar();
 }
 
 function dibujarOtrosCatalogos(otros) {

@@ -285,9 +285,37 @@ textarea {
 }
 
 .producto__precio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-8);
   margin: auto 0 0;
   padding-top: var(--espacio-8);
   font-weight: 600;
+}
+
+/* Agotado: se sigue viendo, atenuado y con etiqueta. */
+.producto--agotado .producto__imagen,
+.producto--agotado .producto__nombre,
+.producto--agotado .producto__descripcion {
+  opacity: 0.45;
+}
+
+.producto--agotado .producto__precio {
+  color: var(--color-ceniza);
+  text-decoration: line-through;
+}
+
+.distintivo-agotado {
+  padding: 3px 10px;
+  border: 1px solid currentColor;
+  border-radius: var(--radio-pildora);
+  color: #ffb36b;
+  font-size: var(--texto-etiqueta);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 /* ---------- Pie ---------- */

@@ -22,6 +22,33 @@
   font-size: var(--texto-subtitulo);
 }
 
+/* ---------- Buscador ---------- */
+.buscador {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-16);
+  margin-bottom: var(--espacio-24);
+}
+
+.buscador__campo {
+  width: min(100%, 360px);
+  padding: 12px 16px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-boton);
+  background: var(--color-superficie);
+}
+
+.buscador__campo::placeholder {
+  color: var(--color-ceniza);
+}
+
+.buscador__campo:focus {
+  border-color: var(--color-casi-blanco);
+  outline: none;
+}
+
 /* ---------- Otros catálogos ---------- */
 .otros {
   padding-top: var(--espacio-seccion);

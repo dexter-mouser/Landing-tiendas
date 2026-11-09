@@ -15,32 +15,39 @@ Diseño basado en los colores del sistema **DOPE** (`../DOPE Desing`) y en la na
 
 ### 2. Segunda mitad del inicio: catálogos y destacados
 - Cada catálogo es una fila ancha en mayúsculas gruesas, con una **flecha →** a la derecha que lleva a su página. Las letras empiezan en contorno y se rellenan una a una a medida que la fila sube por la pantalla.
-- Debajo, la sección **Destacados** muestra hasta 8 productos marcados como destacados en el admin. Si no hay ninguno, la sección no aparece.
+- Debajo, la sección **Destacados** muestra hasta 8 productos marcados como destacados en el admin que estén disponibles (los agotados u ocultos no se promocionan). Si no hay ninguno, la sección no aparece.
 - El menú superior tiene el nombre de la tienda, los mismos catálogos (marca el actual) y un icono de usuario "Iniciar sesión" que abre el panel de admin.
 
 ### 3. Catálogos (subpáginas)
 - Una sola plantilla `catalogo.html` que se llena según la URL: `catalogo.html?categoria=cocteles`.
-- Muestra el nombre del catálogo, su descripción y sus productos (nombre, descripción, precio y un recuadro blanco en lugar de foto).
+- Muestra el nombre del catálogo, su descripción y sus productos (nombre, descripción, precio y un recuadro blanco en lugar de foto). Los agotados se ven atenuados, con el precio tachado y la etiqueta "Agotado"; los ocultos no aparecen.
+- **Buscador:** filtra los productos del catálogo por nombre o descripción mientras se escribe, sin importar tildes ni mayúsculas, e indica cuántos coinciden.
 - Al final, las filas con flecha de los demás catálogos para seguir navegando.
 - Si el catálogo no existe o no tiene productos se ve un aviso con enlace al inicio.
 
-### 4. Panel de admin (`admin.html`)
+### 4. Carta digital (`carta.html`)
+- Todos los productos públicos agrupados por catálogo, en formato de carta de bar: nombre y precio unidos por una línea de puntos, descripción debajo y "Agotado" donde aplique. Los catálogos sin productos visibles no aparecen.
+- Botón "Imprimir / PDF": la versión impresa sale en fondo blanco, sin menú y sin cortar productos entre páginas.
+- Se abre desde el admin con "Ver carta" o "Imprimir / PDF" (este abre `carta.html?imprimir=1`, que lanza la impresión al cargar). También se puede enlazar directo para los clientes.
+
+### 5. Panel de admin (`admin.html`)
 - Página aparte, a la que se entra con el icono de usuario del menú; marcada `noindex`. **No tiene clave**: una clave escrita en el frontend no protege nada; la protección real llegará con un backend.
-- **Formulario:** nombre (máx. 60), precio en pesos enteros (acepta `4200` o `4.200`), catálogo, descripción corta opcional (máx. 140) y casilla "Destacado". Los errores se muestran junto al formulario y enfocan el campo a corregir.
-- **Lista:** tabla con todos los productos y botones Editar y Eliminar (eliminar pide confirmación).
+- **Formulario:** nombre (máx. 60), precio en pesos enteros (acepta `4200` o `4.200`), catálogo, descripción corta opcional (máx. 140), estado (Disponible, Agotado u Oculto) y casilla "Destacado". Cambiar el estado permite retirar un producto sin borrarlo. Los errores se muestran junto al formulario y enfocan el campo a corregir.
+- **Lista:** tabla con todos los productos, su estado y botones Editar y Eliminar (eliminar pide confirmación).
+- **Carta:** botones "Ver carta" e "Imprimir / PDF".
 - **Guardado:** cada cambio se guarda en el navegador (`localStorage`). Lo guardado en ese navegador tiene prioridad sobre el CSV publicado, así que el admin ve sus cambios en la tienda al instante.
 - **Descargar CSV:** genera `productos.csv` (separador `;` y tildes correctas para Excel en español). Para que todos los visitantes vean los productos, se reemplaza `datos/productos.csv` con ese archivo.
-- **Cargar CSV:** reemplaza la lista actual, previa confirmación. Columnas obligatorias: `nombre`, `precio`, `catalogo` (el `id` del catálogo); opcionales: `id`, `descripcion`, `destacado` (`si`/`no`). Acepta `;` o `,`, máximo 1 MB. Las filas sin `id` reciben uno nuevo; las inválidas se omiten y se informa cuántas.
+- **Cargar CSV:** reemplaza la lista actual, previa confirmación. Columnas obligatorias: `nombre`, `precio`, `catalogo` (el `id` del catálogo); opcionales: `id`, `descripcion`, `destacado` (`si`/`no`) y `estado` (`disponible`, `agotado` u `oculto`; vacío cuenta como disponible). Acepta `;` o `,`, máximo 1 MB. Las filas sin `id` reciben uno nuevo; las inválidas se omiten y se informa cuántas.
 - Al exportar, las celdas que empiezan con `=`, `+`, `-` o `@` se anteponen con `'` para que Excel no las ejecute como fórmula; al importar se quita de nuevo.
 
-### 5. Datos
+### 6. Datos
 - `datos/tienda.json`: nombre, dirección y horario (se muestran en el pie) e `imagenHero`, la foto de portada (`null` usa el degradado).
 - `datos/catalogos.json`: lista de catálogos (`id`, `nombre`, `descripcion`); trae de ejemplo los de un bar: Cervezas, Licores, Cócteles y Pasabocas. El orden del archivo es el orden en el menú y en las filas. Los `id` van en minúsculas, números y guiones; el nombre tiene máximo 40 caracteres.
-- `datos/productos.csv`: productos publicados; trae 16 de ejemplo de bar (4 por catálogo, 7 destacados). Se usa cuando el navegador no tiene productos guardados.
+- `datos/productos.csv`: productos publicados; trae 16 de ejemplo de bar (4 por catálogo, 7 destacados y la piña colada agotada). Se usa cuando el navegador no tiene productos guardados.
 - Todo se valida al cargarlo: lo inválido o repetido se descarta y se registra en `console.error`; el usuario solo ve un aviso genérico. Si lo guardado en el navegador está dañado, se usa el CSV publicado.
 - Los archivos se cargan con `fetch`, así que el sitio debe abrirse desde un servidor local (no con doble clic sobre el archivo).
 
-### 6. Errores
+### 7. Errores
 - `404.html` con el mismo estilo y enlace al inicio.
 - Todo texto que viene de los datos se inserta con `textContent` o creando nodos, nunca con `innerHTML`.
 
@@ -56,6 +63,7 @@ Tipografía: la del sistema operativo (`system-ui`, Segoe UI, Roboto, Arial), si
 landing-tiendas/
 ├── index.html              # Portada, filas de catálogos y destacados
 ├── catalogo.html           # Plantilla de catálogo
+├── carta.html              # Carta digital imprimible
 ├── admin.html              # Panel de admin de productos
 ├── 404.html
 ├── README.md
@@ -71,13 +79,14 @@ landing-tiendas/
 │   ├── base.css            # Reset, botones, menú, filas con flecha y tarjetas de producto
 │   ├── inicio.css          # Portada, su transición y destacados
 │   ├── catalogo.css        # Cabecera del catálogo
+│   ├── carta.css           # Carta en pantalla e impresión
 │   └── admin.css           # Formulario y tabla del admin
 ├── src/
 │   ├── datos.js            # Carga y validación de tienda y catálogos
-│   ├── productos.js        # Reglas de productos (puro)
+│   ├── productos.js        # Reglas de productos: validación, estado, búsqueda (puro)
 │   ├── csv.js              # Lectura y escritura de CSV (puro)
 │   ├── almacen-productos.js# Productos en localStorage o desde productos.csv
-│   ├── formato.js          # Formato de precios en pesos
+│   ├── formato.js          # Formato de precios y texto para búsqueda
 │   ├── dom.js              # Creación segura de nodos y avisos
 │   ├── desplazamiento.js   # Agrupa el scroll por cuadro y detecta "reducir movimiento"
 │   ├── hero.js             # Transición de la portada
@@ -86,7 +95,8 @@ landing-tiendas/
 │   ├── vista-admin.js      # Formulario, filas de la tabla y descarga del admin
 │   ├── comun.js            # Arranque compartido: datos, menú y pie
 │   ├── inicio.js           # Arranque de index.html
-│   ├── catalogo.js         # Arranque de catalogo.html
+│   ├── catalogo.js         # Arranque de catalogo.html y su buscador
+│   ├── carta.js            # Arranque de carta.html
 │   └── admin.js            # Arranque y acciones de admin.html
 └── pruebas/                # Pruebas de la lógica pura (node --test)
 ```

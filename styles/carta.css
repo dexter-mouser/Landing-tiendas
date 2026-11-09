@@ -1,0 +1,148 @@
+.menu__accion {
+  margin-left: auto;
+}
+
+.carta {
+  max-width: 820px;
+}
+
+.carta__cabecera {
+  display: grid;
+  gap: var(--espacio-12);
+  padding-block: var(--espacio-64) var(--espacio-40);
+  text-align: center;
+}
+
+.carta__seccion {
+  padding-bottom: var(--espacio-40);
+}
+
+.carta__titulo {
+  margin: 0 0 var(--espacio-8);
+  padding-bottom: var(--espacio-12);
+  border-bottom: 1px solid var(--color-borde-fuerte);
+  font-size: var(--texto-titulo-sm);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.carta__lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carta__item {
+  padding: var(--espacio-16) 0;
+  border-bottom: 1px solid var(--color-borde);
+  break-inside: avoid;
+}
+
+/* Nombre y precio unidos por una línea de puntos, como en una carta impresa. */
+.carta__linea {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espacio-8);
+}
+
+.carta__nombre {
+  margin: 0;
+  font-size: var(--texto-base);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.carta__puntos {
+  flex: 1;
+  min-width: var(--espacio-24);
+  border-bottom: 1px dotted var(--color-ceniza);
+}
+
+.carta__precio {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.carta__descripcion {
+  margin: var(--espacio-4) 0 0;
+  color: var(--color-acero);
+  font-size: var(--texto-pequeno);
+  overflow-wrap: anywhere;
+}
+
+.carta__item--agotado .carta__nombre,
+.carta__item--agotado .carta__descripcion {
+  opacity: 0.5;
+}
+
+.carta__item--agotado .carta__precio {
+  color: var(--color-ceniza);
+  text-decoration: line-through;
+}
+
+.carta__agotado {
+  color: #ffb36b;
+  font-size: var(--texto-etiqueta);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------- Impresión / PDF: fondo blanco, sin menú ---------- */
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .no-imprimir {
+    display: none !important;
+  }
+
+  .contenedor {
+    padding-inline: 0;
+  }
+
+  .carta__cabecera {
+    padding-top: 0;
+  }
+
+  .sello,
+  .carta__titulo {
+    color: #000;
+  }
+
+  .etiqueta,
+  .carta__descripcion,
+  .pie {
+    color: #444;
+  }
+
+  .carta__titulo,
+  .carta__item,
+  .pie {
+    border-color: #bbb;
+  }
+
+  .carta__titulo {
+    break-after: avoid;
+  }
+
+  .carta__puntos {
+    border-color: #999;
+  }
+
+  .carta__agotado {
+    color: #000;
+  }
+
+  .pie {
+    margin-top: var(--espacio-24);
+  }
+}

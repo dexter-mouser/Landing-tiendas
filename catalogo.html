@@ -28,6 +28,13 @@
       <p class="catalogo__descripcion" id="catalogo-descripcion"></p>
     </header>
 
+    <div class="buscador" id="buscador" hidden>
+      <label class="oculto-visual" for="campo-busqueda">Buscar en este catálogo</label>
+      <input class="buscador__campo" id="campo-busqueda" type="search" placeholder="Buscar en este catálogo…" maxlength="60" autocomplete="off">
+      <p class="etiqueta" id="buscador-resultado" aria-live="polite"></p>
+    </div>
+    <p class="aviso" id="sin-resultados" hidden>Ningún producto coincide con tu búsqueda.</p>
+
     <div class="rejilla" id="catalogo-lista"></div>
 
     <section class="otros" id="otros" aria-labelledby="titulo-otros">
